@@ -184,3 +184,76 @@ function remove(bookList, bookName) {
 var newBookList = add(bookList, 'A Brief History of Time');
 var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
 var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+
+
+
+//* TESTING SOME CODE
+
+function CreateArray() {
+
+}
+
+
+
+Array.prototype.callLength = function (callback) {
+    return callback() * this.length
+}
+
+
+console.log('Length Value is: ', [1, 23, 45].callLength(
+    function () {
+        return 2
+    }
+))
+
+
+
+
+var s = [23, 65, 98, 5];
+var x = s.slice(0, 1) // Slide return a copy of the selected elements without 
+// chnaging/mutating the original array i.e "S"
+
+console.log(x)
+console.log(s)
+
+
+//*IMMUTABILITY WITH CONCAT Array metho which does not 
+// change either of the arrays: be it the first or second
+function nonMutatingConcat(original, attach) {
+    // Only change code below this line
+    let returnedArray = original.concat(attach)
+    console.log(returnedArray)
+    console.log(original)
+    console.log(attach)
+    return returnedArray
+    // Only change code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingConcat(first, second);
+
+
+
+//* PUSH VS CONCAT
+// Push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
+// Concats returns a new array altogether both arrays in tact
+
+
+
+const users = [{
+        name: 'John',
+        age: 34
+    },
+    {
+        name: 'Amy',
+        age: 20
+    },
+    {
+        name: 'camperCat',
+        age: 10
+    }
+];
+
+
+let sumOfAges = users.reduce((prev, next) => prev + next.age, 0);
+console.log(sumOfAges)
