@@ -196,3 +196,14 @@ Array.prototype.myFilter = function (callback) {
 var new_s = s.myFilter(function (item) {
     return item % 2 === 1;
 });
+
+
+
+
+console.log(watchList.map(({
+    Title,
+    Type
+}) => ({
+    Title,
+    Type
+})))
