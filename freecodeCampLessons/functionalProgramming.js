@@ -529,3 +529,160 @@ console.log(squareList([-3, 4.8, 5, 3, -3.2]))
 // console.log(squaredIntegers);
 
 // Math.sqr(2)
+
+
+
+console.log('Test Tenary: ', true ? 'Yes' : 'No');
+
+
+//* SORT METHOD 
+function ascendingOrder(arr) {
+    return arr.sort(function (a, b) {
+        return a - b;
+    });
+}
+ascendingOrder([1, 5, 2, 3, 4]);
+// Returns [1, 2, 3, 4, 5]
+
+function reverseAlpha(arr) {
+    return arr.sort(function (a, b) {
+        return a === b ? 0 : a < b ? 1 : -1;
+    });
+}
+reverseAlpha(['l', 'h', 'z', 'b', 's']);
+// Returns ['z', 's', 'l', 'h', 'b']
+
+
+
+// *HOW IT WORKS
+//   JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged. 
+//   Use the sort method in the alphabeticalOrder function to sort the elements of arr in alphabetical order.
+
+
+
+//!SORT METHOD: A side effect of the sort method is that it changes the order of the elements in the original array.
+x = 2
+let xArray = [1, 2, 3]
+let yArray = [6, 8, 0].concat(x);
+console.log(xArray)
+console.log(yArray)
+
+//* Functional Programming: Split a String into an Array Using the split Method
+function splitify(str) {
+    // Only change code below this line
+    return str.split(/\W/)
+    // Only change code above this line
+}
+splitify("Hello World,I-am code");
+
+
+
+//* Spilt and Join into string of sentence
+
+function sentensify(str) {
+    // Only change code below this lin
+    return str.split(/\W/).join(' ')
+    // Only change code above this line
+}
+console.log(sentensify("May-the-force-be-with-you"));
+
+
+// Only change code below this line
+function urlSlug(title) {
+    console.log(title.replace(/ /g, '-').toLowerCase())
+    // console.log(title)
+    return
+}
+// Only change code above this line
+
+//* Apply Functional Programming to Convert Strings to URL Slugs
+// Only change code below this line
+
+//*THIS:
+
+function urlSlug2(title) {
+    return title.trim().split(/ +/).join('-').toLowerCase()
+}
+// *** OR 
+
+//* THIS::
+
+function urlSlug(title) {
+
+    let broken = title.trim().split(/ +/);
+    console.log('len', broken.length)
+    let reducedBroken = broken.reduce(
+        (accu, next, index, array) => {
+            // console.log(array.length)
+            if (index == broken.length - 1) {
+                accu = accu.concat(next);
+                return accu
+            }
+            accu = accu.concat(`${next}-`);
+            // console.log(accu)
+            return accu
+        }, ''
+    )
+    return reducedBroken.toLowerCase()
+    // console.log('Array after reduce', broken) // Original Value Unchanged
+    /* return  */
+}
+
+
+console.log(urlSlug(" Winter Is   Coming tomorrow"));
+
+
+
+/* let emptyWorld = 'g'
+console.log(emptyWorld.concat('hello'));
+console.log('emptywolrd: ', emptyWorld); */
+
+
+//*ARRAY.EVERY() METHOD
+// Passing Callback to every method to test every element in the array
+// meets some criteria returned from the callback (member < 0)
+console.log([2, 3, 45].every((member) => member < 0))
+
+function checkNegative(arr) {
+    return arr.every(elem => elem < 0)
+}
+
+checkNegative([-1, -10, 8]) // returns false since not all elements are 
+// negative or less than zero
+
+//*ARRAY.SOME() METHOD
+function checkPositive(arr) {
+    // Only change code below this line
+
+    return arr.some(elem => elem > 0)
+    // Only change code above this line
+}
+console.log(checkPositive([1, 2, 3, -4, 5]));
+
+
+
+//* CURRYING 
+function addXFirst(x) {
+    // Only change code below this line
+
+    return function (y) {
+        return function (z) {
+            return z + y + x
+        }
+    }
+    // Only change code above this line
+}
+
+let secondReturnFunction = addXFirst(10);
+let thirdReturnFunction = secondReturnFunction(20)(10);
+console.log(thirdReturnFunction);
+
+
+
+// console.log(addXFirst(10)(2)(10));
+
+
+//* PARTIAL APPLICATION
+// partial function :: 
+var partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // Returns 13
